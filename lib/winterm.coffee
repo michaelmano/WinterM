@@ -18,25 +18,26 @@ module.exports = WinterM =
     atom.commands.add 'atom-workspace', 'winterm:isComing': => @isComing()
 
   isComing: ->
-    Terminal = 'C:\\Windows\\System32\\cmd.exe'
+    Terminal     = 'C:\\Windows\\System32\\cmd.exe'
     atom.config.observe 'winterm.Terminal', (newTerminal) ->
-      Terminal = newTerminal
+      Terminal   = newTerminal
 
-    if atom.workspace.getActivePaneItem()
-      editor   = atom.workspace.getActivePaneItem()
-      file     = editor?.buffer.file
-      rmFmPath = file.path.substring(file.path.lastIndexOf('\\') + 1)
-      cmdPath  = file.path.replace(rmFmPath,'')
+    if atom.workspace.getActivePaneItem()?
+      editor     = atom.workspace.getActivePaneItem()
+      if editor.buffer.file?
+        file     = editor.buffer.file
+        rmFmPath = file.path.substring(file.path.lastIndexOf('\\') + 1)
+        cmdPath  = file.path.replace(rmFmPath,'')
     else
-      project  = atom.project.getPaths()
-      cmdPath  = project[0]
+      project   = atom.project.getPaths()
+      cmdPath   = project[0]
 
     if platform() == 'darwin'
       cmd = 'open -a ' + cmdPath
     if platform() == 'win32'
       terminalType = Terminal.substring(Terminal.lastIndexOf('\\') + 1)
       if terminalType == 'Cmder.exe'
-        cmd = 'start ' + Terminal + ' /START ' + cmdPath
+        cmd     = 'start ' + Terminal + ' /START ' + cmdPath
       else
-        cmd = 'start ' + Terminal + ' "%V" /k cd /d ' + cmdPath
+        cmd     = 'start ' + Terminal + ' "%V" /k cd /d ' + cmdPath
     exec cmd
