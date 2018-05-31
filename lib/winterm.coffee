@@ -17,11 +17,12 @@ module.exports = WinterM =
     atom.commands.add 'atom-workspace', 'winterm:isComing': => @isComing()
 
   isComing: ->
+    activePane = atom.workspace.getActivePaneItem()
     Terminal     = 'C:\\Windows\\System32\\cmd.exe'
     atom.config.observe 'winterm.Terminal', (newTerminal) ->
       Terminal   = newTerminal
 
-    activePane = atom.workspace.getActivePaneItem()
+
 
     if activePane? && activePane.buffer? && activePane.buffer.file? && activePane.buffer.file.path?
       cmdPath  = path.dirname(atom.workspace.getActivePaneItem().buffer.file.path);
