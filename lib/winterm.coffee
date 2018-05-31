@@ -1,6 +1,7 @@
 WinterMView             = require('./winterm-view')
 exec                    = require('child_process').exec
 platform                = require('os').platform
+path                    = require('path')
 { CompositeDisposable } = require('atom')
 
 module.exports = WinterM =
@@ -10,8 +11,6 @@ module.exports = WinterM =
       description: 'Choose a type of output Terminal.'
       'default': 'C:\\Windows\\System32\\cmd.exe'
 
-  pxToEmView: null
-  modalPanel: null
   subscriptions: null
 
   activate: ->
@@ -26,18 +25,16 @@ module.exports = WinterM =
       editor     = atom.workspace.getActivePaneItem()
       if editor.buffer.file?
         file     = editor.buffer.file
-        rmFmPath = file.path.substring(file.path.lastIndexOf('\\') + 1)
-        cmdPath  = file.path.replace(rmFmPath,'')
+        cmdPath  = path.dirname(editor.buffer.file.path);
     else
-      project   = atom.project.getPaths()
-      cmdPath   = project[0]
+      cmdPath   = atom.project.getPaths()[0]
 
     if platform() == 'darwin'
-      cmd = 'open -a ' + cmdPath
+      cmd = 'open -a Terminal ' + cmdPath
     if platform() == 'win32'
-      terminalType = Terminal.substring(Terminal.lastIndexOf('\\') + 1)
-      if terminalType == 'Cmder.exe'
+      if path.basename(Terminal) == 'Cmder.exe'
         cmd     = 'start ' + Terminal + ' /START ' + cmdPath
       else
         cmd     = 'start ' + Terminal + ' "%V" /k cd /d ' + cmdPath
-    exec cmd
+
+    return exec cmd
