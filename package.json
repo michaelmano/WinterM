@@ -1,29 +1,40 @@
 {
-  "name": "winterm",
-  "main": "./lib/winterm",
-  "version": "0.4.0",
-  "description": "Open a terminal in your current files directory.",
-  "keywords": [
-    "terminal",
-    "windows 10",
-    "file location terminal"
-  ],
-  "activationCommands": {
-    "atom-workspace": "winterm:isComing"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/michaelmano/WinterM.git"
-  },
-  "license": "MIT",
-  "engines": {
-    "atom": ">=1.0.0 <2.0.0"
-  },
-  "dependencies": {},
-  "readme": "# winterm package\n\nUSAGE\n-----\n\n1 - Edit settings to change default terminal. \n\n\t Type Ctrl+cmd+T and a terminal will open in your current files directory.\n",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/michaelmano/WinterM/issues"
-  },
-  "homepage": "https://github.com/michaelmano/WinterM"
+    "name": "winterm",
+    "main": "./lib/main",
+    "version": "0.4.0",
+    "description": "Open a terminal in your current files directory.",
+    "keywords": ["terminal", "windows 10", "file location terminal"],
+    "activationCommands": {
+        "atom-workspace": "winterm:isComing"
+    },
+    "homepage": "https://github.com/michaelmano/WinterM",
+    "bugs": {
+        "url": "https://github.com/michaelmano/WinterM/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/michaelmano/WinterM.git"
+    },
+    "author": {
+        "name": "Michael Mano",
+        "email": "michael.mano26@gmail.com",
+        "url": "https://michaelmano.com/"
+    },
+    "license": "MIT",
+    "engines": {
+        "atom": ">=1.0.0 <2.0.0"
+    },
+    "scripts": {
+        "lint":
+            "eslint --format ./node_modules/coffeelint-reporter-style-for-eslint-formatter/main.js ."
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "coffeelint-reporter-style-for-eslint-formatter": "^0.5.0",
+        "eslint": "^3.7.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-standard": "^6.2.0",
+        "eslint-plugin-promise": "^2.0.1",
+        "eslint-plugin-standard": "^2.0.1"
+    }
 }

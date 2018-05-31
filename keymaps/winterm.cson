@@ -9,7 +9,7 @@
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 
 'atom-workspace':
-  'cmd-shift-t': 'winterm:isComing'
+    'cmd-shift-t': 'winterm:isComing'
 
 '.platform-win32 atom-workspace':
-  'ctrl-shift-t': 'winterm:isComing'
+    'ctrl-shift-t': 'winterm:isComing'
