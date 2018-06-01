@@ -1,0 +1,21 @@
+{
+    "aix": [],
+    "darwin": [
+        {
+            "prefix": "open -a",
+            "path": "/Applications/Utilities/Terminal.app",
+            "affix": ""
+        }
+    ],
+    "freebsd": [],
+    "linux": [],
+    "openbsd": [],
+    "sunos": [],
+    "win32": [
+        {
+            "prefix": "start",
+            "path": "C:\\Windows\\System32\\cmd.exe",
+            "affix": "\"%V\" /k cd /d"
+        }
+    ]
+}
