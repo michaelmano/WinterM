@@ -10,7 +10,7 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'winterm'
+      'label': 'WinterM'
       'submenu': [
         {
           'label': 'WinterM is coming'
