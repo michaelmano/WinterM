@@ -1,19 +1,21 @@
 {
   "aix": [],
-  "darwin": {
-    "prefix": "open -a",
-    "affix": "",
-    "terminals": ["/Applications/Utilities/Terminal.app"]
-  },
+  "darwin": [
+    {
+      "start_command": "open -a",
+      "terminal_path": "/Applications/Utilities/Terminal.app",
+      "optional_parameters": ""
+    }
+  ],
   "freebsd": [],
   "linux": [],
   "openbsd": [],
   "sunos": [],
   "win32": [
     {
-      "prefix": "start",
-      "affix": "\"%V\" /k cd /d",
-      "terminals": ["C:\\Windows\\System32\\cmd.exe"]
+      "start_command": "start",
+      "terminal_path": "C:\\Windows\\System32\\cmd.exe",
+      "optional_parameters": "\"%V\" /k cd /d"
     }
   ]
 }
