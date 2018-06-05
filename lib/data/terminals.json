@@ -3,8 +3,8 @@
   "darwin": [
     {
       "start_command": "open -a",
-      "terminal_path": "/Applications/Utilities/Terminal.app",
-      "optional_parameters": ""
+      "path": "/Applications/Utilities/Terminal.app",
+      "parameters": ""
     }
   ],
   "freebsd": [],
@@ -14,8 +14,13 @@
   "win32": [
     {
       "start_command": "start",
-      "terminal_path": "C:\\Windows\\System32\\cmd.exe",
-      "optional_parameters": "\"%V\" /k cd /d"
+      "path": "C:\\cmder\\Cmder.exe",
+      "parameters": "/START"
+    },
+    {
+      "start_command": "start",
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "parameters": "\"%V\" /k cd /d"
     }
   ]
 }
